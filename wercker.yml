@@ -2,6 +2,10 @@ box: node:6.11.0-slim
 
 build:
   steps:
+    - script:
+      name: clean workspace (sometimes node_modules is dirty)
+      code: git clean -fdx
+
     - npm-install
 
     - script:
@@ -9,6 +13,7 @@ build:
         code: |
           npm run clean
           npm run build
+
     - script:
         name: move executable
         code: mv panther-* $WERCKER_REPORT_ARTIFACTS_DIR
