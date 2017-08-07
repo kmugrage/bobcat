@@ -4,7 +4,7 @@ build:
   steps:
     - script:
       name: clean workspace (sometimes node_modules is dirty)
-      code: git clean -fdx
+      code: rm -rf node_modules
 
     - npm-install
 
