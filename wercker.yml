@@ -3,10 +3,8 @@ box: node:6.11.0-slim
 build:
   steps:
     - script:
-      name: clean workspace and npm caches
-      code: |
-        rm -rf $WERCKER_CACHE_DIR/wercker/npm
-        npm run clean
+      name: clean workspace (do this before npm-install, or else it will delete files in node_modules)
+      code: npm run clean
 
     - npm-install
 
