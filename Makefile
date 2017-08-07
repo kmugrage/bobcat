@@ -70,7 +70,7 @@ performance:
 clean:
 	rm -f dsl/dsl.go
 	rm -f bobcat
-	find . -type f -name \*.json -delete
+	find . -type f ! -name 'package.json' -name '*.json' -delete
 
 # create a release tarball
 release: run
